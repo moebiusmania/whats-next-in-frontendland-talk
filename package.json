@@ -6,7 +6,8 @@
   "author": "Salvatore Laisa <moebiusmania@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "http-server ./slides -p 8080 -s",
+    "start": "vuepress dev ./src",
+    "build": "vuepress build ./src --dest ./slides",
     "deploy": "gh-pages -d slides"
   },
   "devDependencies": {
