@@ -3,4 +3,8 @@ sidebar: false
 title: Portals
 ---
 
-![https://web.dev/hands-on-portals/glitch.gif](https://web.dev/hands-on-portals/glitch.gif)
+<picture class="smaller">
+
+![/img/portals.gif](/img/portals.gif)
+
+</picture>

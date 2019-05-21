@@ -6,8 +6,7 @@ sidebar: false
 * Native lazy loading
 * Portals
 * Web packaging
-* Modules
+* HTML Modules
 * CSS Shadow Parts
 * Shape detection APIs
-* Web Authentication
 * ES Next bites

@@ -227,14 +227,29 @@ iframe {
   height: 100%;
 }
 
+picture {
+  display: block;
+  margin: 0 auto;
+
+  &.smaller {
+    width: 80%;
+  }
+
+  &.full {
+    width: 100%;
+  }
+}
+
 .cover,
-.closing {
+.closing,
+.faq {
   text-align: center;
   position: relative;
   z-index: 999;
 }
 
-.cover {
+.cover,
+.faq.main {
   margin-top: 7.0em !important;
 
   h1 {
@@ -243,6 +258,18 @@ iframe {
 
   p {
     font-size: 1.3em;
+  }
+}
+
+.faq {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  blockquote {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1.0em;
   }
 }
 
