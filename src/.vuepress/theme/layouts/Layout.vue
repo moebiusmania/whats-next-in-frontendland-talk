@@ -5,17 +5,17 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <Navbar
+    <!-- <Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
-    />
+    /> -->
 
     <div
       class="sidebar-mask"
       @click="toggleSidebar(false)"
     ></div>
 
-    <Sidebar
+    <!-- <Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
     >
@@ -27,7 +27,7 @@
         name="sidebar-bottom"
         slot="bottom"
       />
-    </Sidebar>
+    </Sidebar> -->
 
     <Home v-if="$page.frontmatter.home"/>
 
@@ -45,15 +45,18 @@
       />
     </Page>
 
+    <div
+      v-show="$page.frontmatter.particles"
+      id="particles-js"
+    ></div>
+
     <gamepad-api ref="gamepad"></gamepad-api>
   </div>
 </template>
 
 <script>
 import Home from '@theme/components/Home.vue'
-import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
-import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
 
 import { fromEvent } from 'rxjs';
@@ -73,7 +76,8 @@ const keyToDir = (keyCode) => {
 }
 
 export default {
-  components: { Home, Page, Sidebar, Navbar },
+  // components: { Home, Page, Sidebar, Navbar },
+  components: { Home, Page },
 
   data () {
     return {
@@ -150,10 +154,25 @@ export default {
         map(key => keyToDir(key))
       )
       .subscribe(dir => navigate(dir));
-      
+    
+    particlesJS.load('particles-js', '/particles/config.json', () => {
+      console.log('callback - particles.js config loaded');
+      document.querySelector('canvas')
+        .addEventListener('click', evt => navigate('next'));
+    });
+
+    document.addEventListener('keyup', evt => {
+      evt.keyCode === 80 ? this.loadParticles() : null;
+    });
   },
 
   methods: {
+    loadParticles () {
+      particlesJS.load('particles-js', '/particles/config.json', () => {
+        console.log('callback - particles.js config loaded');
+      });
+    },
+
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },
@@ -181,12 +200,60 @@ export default {
 }
 </script>
 
-<style lang="scss">
- .prev, .next {
-   a {
-     color: transparent;
-   }
- }
-</style>
-
 <style src="prismjs/themes/prism-tomorrow.css"></style>
+
+<style lang="scss">
+h1, p, ul {
+  font-family: 'Avenir Next';
+}
+h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+p, ul {
+  font-size: 1.3em;
+}
+
+iframe {
+  border: 0;
+}
+
+#particles-js {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cover,
+.closing {
+  text-align: center;
+  position: relative;
+  z-index: 999;
+}
+
+.cover {
+  margin-top: 7.0em !important;
+
+  h1 {
+    font-size: 3.9em;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
+}
+
+.closing {
+  h1 {
+    font-size: 6.0em;
+  }
+
+  li {
+    font-size: 1.4em;
+    list-style: none;
+  }
+}
+</style>

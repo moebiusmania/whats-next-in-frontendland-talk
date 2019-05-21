@@ -65,4 +65,6 @@ export class GamepadApi extends HTMLElement {
 
 }
 
-customElements.define('gamepad-api', GamepadApi);
+!customElements.get('gamepad-api') ?
+  customElements.define('gamepad-api', GamepadApi) :
+  null;

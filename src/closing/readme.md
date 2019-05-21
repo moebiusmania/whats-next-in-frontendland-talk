@@ -1,8 +1,15 @@
 ---
 sidebar: false
+particles: true
 ---
 
-# Thanks
+<div class="closing">
 
-* Milano Frontend (Davide, Giulia, Giacomo)
-* Mikamai
+# 👍 Thanks 👍
+
+* Milano Frontend (*Davide, Giulia, Giacomo*)
+* Mikamai (*tutti i piani*)
+* quelli che cliccano "si" e poi si presentano
+* quelli che cliccano "si" e poi **non** si presentano
+
+</div>

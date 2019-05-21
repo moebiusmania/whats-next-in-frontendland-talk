@@ -1,3 +1,4 @@
 ---
 sidebar: false
+particles: true
 ---

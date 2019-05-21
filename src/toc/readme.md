@@ -2,10 +2,12 @@
 sidebar: false
 ---
 
-### what's next
-* Portals & Web packaging
+# what's next - TOC
+* Native lazy loading
+* Portals
+* Web packaging
 * Modules
-    * CSS
-    * HTML
-    * JSON
 * CSS Shadow Parts
+* Shape detection APIs
+* Web Authentication
+* ES Next bites

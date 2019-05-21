@@ -220,6 +220,7 @@ function flatten (items, res) {
       color #aaa
 
 .page-nav
+  display: none;
   @extend $wrapper
   padding-top 1rem
   padding-bottom 0
