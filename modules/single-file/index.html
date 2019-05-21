@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HTML Modules - single file | What&#39;s next in frontend-land</title>
+    <meta name="description" content="">
+    <script async="true" src="/particles/particles.min.js"></script>
+  <script async="true" src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+    
+    <link rel="preload" href="/assets/css/0.styles.17ced472.css" as="style"><link rel="preload" href="/assets/js/app.1c8a62d1.js" as="script"><link rel="preload" href="/assets/js/4.ff6b772f.js" as="script"><link rel="preload" href="/assets/js/26.1701e8f9.js" as="script"><link rel="preload" href="/assets/js/5.5fbdb1f6.js" as="script"><link rel="prefetch" href="/assets/js/10.8f760a25.js"><link rel="prefetch" href="/assets/js/11.141b27b9.js"><link rel="prefetch" href="/assets/js/12.2a1322e7.js"><link rel="prefetch" href="/assets/js/13.8f29efa9.js"><link rel="prefetch" href="/assets/js/14.e5ab20a3.js"><link rel="prefetch" href="/assets/js/15.9778c21e.js"><link rel="prefetch" href="/assets/js/16.db0943c0.js"><link rel="prefetch" href="/assets/js/17.d8b5c1cd.js"><link rel="prefetch" href="/assets/js/18.de9da1bd.js"><link rel="prefetch" href="/assets/js/19.f73e4108.js"><link rel="prefetch" href="/assets/js/2.d7504ef7.js"><link rel="prefetch" href="/assets/js/20.0df2c492.js"><link rel="prefetch" href="/assets/js/21.eb4c2a92.js"><link rel="prefetch" href="/assets/js/22.2b5dd472.js"><link rel="prefetch" href="/assets/js/23.02e316cc.js"><link rel="prefetch" href="/assets/js/24.e4ded2be.js"><link rel="prefetch" href="/assets/js/25.e38ca3e4.js"><link rel="prefetch" href="/assets/js/27.7c5b86a5.js"><link rel="prefetch" href="/assets/js/28.11524a0c.js"><link rel="prefetch" href="/assets/js/29.26ee6776.js"><link rel="prefetch" href="/assets/js/3.2dc16b8f.js"><link rel="prefetch" href="/assets/js/30.a4074418.js"><link rel="prefetch" href="/assets/js/31.b6c16f6b.js"><link rel="prefetch" href="/assets/js/32.1207033e.js"><link rel="prefetch" href="/assets/js/33.504147f5.js"><link rel="prefetch" href="/assets/js/34.10df98b4.js"><link rel="prefetch" href="/assets/js/35.b52d2f5c.js"><link rel="prefetch" href="/assets/js/36.a26f8d11.js"><link rel="prefetch" href="/assets/js/37.7cb954cb.js"><link rel="prefetch" href="/assets/js/38.374384b4.js"><link rel="prefetch" href="/assets/js/39.5123b28a.js"><link rel="prefetch" href="/assets/js/40.ac5aef97.js"><link rel="prefetch" href="/assets/js/6.942a9563.js"><link rel="prefetch" href="/assets/js/7.1a521c26.js"><link rel="prefetch" href="/assets/js/8.430a408f.js"><link rel="prefetch" href="/assets/js/9.fd2949d1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.17ced472.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-navbar no-sidebar"><div class="sidebar-mask"></div> <main class="page"> <div class="content default"><h1 id="html-modules-single-file"><a href="#html-modules-single-file" aria-hidden="true" class="header-anchor">#</a> HTML Modules - single file</h1> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tmpl<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>Custom element shadow tree content...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>module<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> importDoc <span class="token operator">=</span> <span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span>document<span class="token punctuation">;</span>
+
+  <span class="token keyword">class</span> <span class="token class-name">myCustomElement</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLElement</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">const</span> shadowRoot <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">attachShadow</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mode<span class="token punctuation">:</span> <span class="token string">&quot;open&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> template <span class="token operator">=</span> importDoc<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;tmpl&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      shadowRoot<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>template<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  window<span class="token punctuation">.</span>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">&quot;myCustomElement&quot;</span><span class="token punctuation">,</span> myCustomElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/modules/" class="prev router-link-active">
+          HTML Modules
+        </a></span> <span class="next"><a href="/shadow-parts/">
+          CSS Shadow Parts
+        </a>
+        →
+      </span></p></div> </main> <div id="particles-js" style="display:none;"></div> <gamepad-api></gamepad-api></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.1c8a62d1.js" defer></script><script src="/assets/js/4.ff6b772f.js" defer></script><script src="/assets/js/26.1701e8f9.js" defer></script><script src="/assets/js/5.5fbdb1f6.js" defer></script>
+  </body>
+</html>
